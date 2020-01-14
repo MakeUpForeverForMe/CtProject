@@ -38,13 +38,11 @@ public class LocalFileProducer implements Producer {
       List<Contact> contacts = in.read(Contact.class);
       while (flag) {
         // 从通讯录随机查找两个电话号码（主叫，被叫）
-        int call1index = (int) (Math.random() * contacts.size());
-        int call2index;
+        String tell1 = contacts.get((int) (Math.random() * contacts.size())).getTell();
+        String tell2;
         do {
-          call2index = (int) (Math.random() * contacts.size());
-        } while (call1index != call2index);
-        Contact contact1 = contacts.get(call1index);
-        Contact contact2 = contacts.get(call2index);
+          tell2 = contacts.get((int) (Math.random() * contacts.size())).getTell();
+        } while (!tell1.equals(tell2));
 
         // 生成随机的通话时间
         // 限定通话时间的范围
@@ -64,7 +62,7 @@ public class LocalFileProducer implements Producer {
         String duration = NumberUtil.format((int) (Math.random() * 3000), 4);
 
         // 生成通话记录
-        CallLog callLog = new CallLog(contact1.getTell(), contact2.getTell(), callTimeString, duration);
+        CallLog callLog = new CallLog(tell1, tell2, callTimeString, duration);
 
         // 将通话记录刷写道文件中
         out.write(callLog);
