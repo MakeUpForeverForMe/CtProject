@@ -28,7 +28,7 @@ public class Contact extends Data {
   @Override
   public void setValue(Object value) {
     super.setValue(value);
-    String[] values = super.getValue().split(" ");
+    String[] values = ((String) super.getValue()).split(" ");
     setTell(values[0]);
     setName(values[1]);
   }

@@ -2,16 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>myself</groupId>
-    <artifactId>CtProject</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
-    <modules>
-        <module>ctCommon</module>
-        <module>ctProducer</module>
-    </modules>
+  <groupId>myself</groupId>
+  <artifactId>CtProject</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <modules>
+    <module>ctCommon</module>
+    <module>ctProducer</module>
+  </modules>
 
-
+  <properties>
+    <!-- Junit版本 -->
+    <junit.version>4.12</junit.version>
+  </properties>
+  <dependencies>
+    <!-- 添加Junit的依赖 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>
